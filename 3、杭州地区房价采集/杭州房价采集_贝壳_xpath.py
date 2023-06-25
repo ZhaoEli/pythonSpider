@@ -1,4 +1,3 @@
-import re
 import csv
 from fake_useragent import UserAgent
 import  time
@@ -6,7 +5,7 @@ import requests
 import random
 import datetime
 from lxml import etree
-from lxml.html import fromstring,tostring
+# from lxml.html import fromstring,tostring
 '''
     二级静态页面抓取
     
@@ -70,7 +69,7 @@ class housing_Prices_Spider(object):
         feature =".//span[@class='label-val tese-val']/text()"
         builders = ".//ul[@class='x-box'][1]/li[@class='all-row'][3]/span[@class='label-val']/text()"
 
-        for page_number in range(min_page_number,max_page_number ):
+        for page_number in range(min_page_number,max_page_number+1 ):
 
             one_url=self.one_url.format(page_number=page_number)
             one_url_list=self.get_List(one_url,self.headers,self.re_bds_url)
@@ -151,8 +150,8 @@ class housing_Prices_Spider(object):
 if __name__ == '__main__':
 
     # 需要爬取网页的范围
-    min_page_number = 60 #从当前页开始采集
-    max_page_number = 81 #终止页面，采集数据不包括当前页。注意！！📢
+    min_page_number = 20 #从当前页开始采集
+    max_page_number = 40 #终止页面，采集数据不包括当前页。注意！！📢
 
     try:
         spider = housing_Prices_Spider()
