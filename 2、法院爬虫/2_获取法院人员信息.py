@@ -87,7 +87,7 @@ class get_Judgers(object):
 if __name__ == '__main__':
     spider=get_Judgers()
 
-    with open('法院所在省份.ini','r', newline='', encoding='utf-8') as f:
+    with open('法院所在省份.ini', 'r', newline='', encoding='utf-8') as f:
         for p in f:
             province=p.strip('\n')
             if province=='北京' or province=='天津':continue
