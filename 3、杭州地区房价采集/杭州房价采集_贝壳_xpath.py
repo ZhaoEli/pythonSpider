@@ -133,25 +133,12 @@ class housing_Prices_Spider(object):
             print('获取完成第{d}个页面——————————over————————————————'.format(d=page_number))
         f.close()
 
-
-    # def run(self):
-    #     for page_number in range(self.min_page_number,self.max_page_number+1):
-    #         one_url=self.one_url.format(page_number=page_number)
-    #         html = self.get_html(m_url=one_url, headers=self.headers)
-    #         #获取一级页面内容的链接，准备做跳转到二级
-    #         one_list = self.parse_html(self.re_bds_one, html)
-    #         #获取二级详情页并写入csv
-    #         self.second_list_to_write(self.prefix_url,self.re_bds_two,one_list)
-    #         print('获取完成第{d}个页面——————————over————————————————'.format(d=page_number))
-    #     print('ok,程序运行完毕，抓取了{page_one}~{page_two}页的数据。'.format(page_one=self.min_page_number,page_two=self.max_page_number))
-
-
 #主函数
 if __name__ == '__main__':
 
     # 需要爬取网页的范围
     min_page_number = 20 #从当前页开始采集
-    max_page_number = 40 #终止页面，采集数据不包括当前页。注意！！📢
+    max_page_number = 40 #终止页面，采集数据包括当前页。📢
 
     try:
         spider = housing_Prices_Spider()
