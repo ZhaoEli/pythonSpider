@@ -7,11 +7,12 @@ con=pymysql.connect(host='localhost',user='root',password='zhaoaiqq',database='m
 cur=con.cursor()
 
 print(con.host_info)
+
 sql1='''
 CREATE TABLE `db_juger`
 (   
     id varchar(50),
-    name        varchar(50) comment '法官姓名',
+    juger_name        varchar(20) comment '法官姓名',
     province    VARCHAR(50) comment '省份区域',
     gender      int     comment '1 男
 0 女',
@@ -20,7 +21,9 @@ CREATE TABLE `db_juger`
     department  varchar(50) comment '所在部门',
     title       varchar(50) comment '头衔',
     office_position  varchar(50) comment '职位',
-    last_update DATE    comment '最后更新时间'
+    last_update DATE    comment '最后更新时间',
+    constraint db_juger_pk
+        primary key (id)
 )
     comment '法官数据库';
 '''
